@@ -1,0 +1,28 @@
+<apex:component >
+    <div class="pageElement" style="width: 215px; padding-left: 18px; ">
+        <div class="text-in">
+            <span style="float: right;">
+                <apex:image url="{!$Resource.builtonsites}" alt="Built on Salesforce Sites!" style="padding-left: 20px;"/>
+    
+                <br/>
+                <br/>
+                
+                <div class="text-in" style="margin-left: 20px;">
+                    This website along with our blog was built by Appiphony using Force.com Sites. All the graphics and dynamic content resides inside our Force.com account. To learn more about how we built our website read this post.
+                </div>
+    
+                <br/>
+                <br/>
+    
+                <apex:image url="{!$Resource.ISVlogo}" alt="A Salesforce.com Consulting Partner"/>
+    
+                <br/>
+                <br/>
+      
+   
+               
+    
+            </span>
+        </div>
+    </div>
+</apex:component>

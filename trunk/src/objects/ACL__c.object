@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Defines which profiles are tied to what blogs</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Blog__c</fullName>
+        <label>Blog</label>
+        <referenceTo>Blog__c</referenceTo>
+        <relationshipLabel>ACLs</relationshipLabel>
+        <relationshipName>ACLs</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Profile__c</fullName>
+        <label>Profile</label>
+        <referenceTo>UserProfile__c</referenceTo>
+        <relationshipLabel>ACLs</relationshipLabel>
+        <relationshipName>ACLs</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <label>ACL</label>
+    <nameField>
+        <displayFormat>ACL-{000000}</displayFormat>
+        <label>ACL Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>ACLs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

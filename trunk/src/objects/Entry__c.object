@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>An entry that is associated with a blog.</description>
+    <fields>
+        <fullName>Abstract__c</fullName>
+        <description>A short description of the content in your post.</description>
+        <inlineHelpText>A short description of the content in your post.</inlineHelpText>
+        <label>Abstract</label>
+        <length>1200</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Alias__c</fullName>
+        <description>Alias holds the posters name (or Alias) and can be displayed in the crumbs below entries.</description>
+        <label>Alias</label>
+        <length>80</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Blog__c</fullName>
+        <description>The blog that this entry is related to.</description>
+        <inlineHelpText>The blog that this entry is related to.</inlineHelpText>
+        <label>Blog</label>
+        <referenceTo>Blog__c</referenceTo>
+        <relationshipLabel>Entries</relationshipLabel>
+        <relationshipName>Entries</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Close_Comment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If checked, will not allow additional comments to be placed on the entry.</description>
+        <inlineHelpText>If checked, will not allow additional comments to be placed on the entry.</inlineHelpText>
+        <label>Close Comment</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Content__c</fullName>
+        <description>The body of the post. The blog engine will display any HTML characters input.</description>
+        <inlineHelpText>The body of the post. The blog engine will display any HTML characters input.</inlineHelpText>
+        <label>Content</label>
+        <length>32000</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Published_Date__c</fullName>
+        <description>The date and time that this entry was marked published.</description>
+        <label>Published Date</label>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Published__c</fullName>
+        <label>Published</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Published</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>cMonth__c</fullName>
+        <description>The cMonth that this entry is related to.</description>
+        <label>cMonth</label>
+        <referenceTo>cMonth__c</referenceTo>
+        <relationshipLabel>Entries</relationshipLabel>
+        <relationshipName>Entries</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <label>Entry</label>
+    <nameField>
+        <label>Entry Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Entries</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

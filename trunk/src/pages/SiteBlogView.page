@@ -1,0 +1,97 @@
+<apex:page controller="BlogViewController" showHeader="false" standardStylesheets="false">
+<apex:pageBlock rendered="{!NOT(render)}">
+<center><h1>{!errorMsg}</h1></center>
+</apex:pageBlock>
+<apex:pageBlock rendered="{!render}">
+    <apex:composition template="RelayTemplate">     
+        
+        <apex:define name="title">{!pageBlog.Name}</apex:define>
+
+        <apex:define name="additionalHeaders">
+
+            <script type="text/javascript" src="{!$Resource.mootoolscore}"></script>
+            <script type="text/javascript" src="{!$Resource.mootree}"></script>         
+            <script type="text/javascript">
+                
+                <apex:repeat value="{!monthlyId}" var="mIds">
+                    var tree{!mIds.Id};
+                </apex:repeat>
+                
+                window.onload = function() {
+                    // --- ordinary MooTreeControl example:
+
+                    <apex:repeat value="{!monthlyId}" var="mIds">
+
+                        tree{!mIds.id} = new MooTreeControl({
+                            div: 'altree{!mIds.Id}',
+                            mode: 'folders',
+                            grid: true,
+                            theme: '{!$Resource.mootreegif}',
+                            loader: '{!$Resource.mootree_loadergif}',
+                            onSelect: function(node, state) {
+                                if (node.text == '{!mIds.Display_Name__c}') {
+                                    if (state) window.location = '/SiteBlogView?id={!pageBlog.Id}&year={!mIds.Year_Name__c}&month={!mIds.Name}&exp={!mIds.id}';
+                                } else {
+                                    if (state) window.location = node.data.url + '&exp={!mIds.id}';
+                                }
+                            }
+                        },
+                        {text: '{!mIds.Display_Name__c}', open: false} // This is the one that we need to determine conditionallly.
+                        );
+                    
+                        tree{!mIds.Id}.disable();
+                        tree{!mIds.Id}.adopt('{!mIds.Id}');
+                        if ('{!exp}' == '{!mIds.id}') {
+                            tree{!mIds.Id}.expand();
+                        }
+                        tree{!mIds.Id}.enable();
+                    </apex:repeat>
+                }
+            </script>
+
+        </apex:define>
+        
+
+        <apex:define name="body">
+                   <div class="rightShadow">
+                <div id="graybar">
+                    <div class="news-in">
+                        {!pageBlog.Name} 
+                    </div>
+                </div>
+            </div>
+              
+
+
+            <div class="pageElement" style="width: 898px; ">
+            
+                
+                <div class="pageElement" style="width: 650px; padding-right: 10px;">
+                    <apex:repeat value="{!entryList}" var="c">
+                
+                        <div class="text-in">
+                            <apex:outputlink value="{!$Page.SiteEntryView}"><apex:param name="id" value="{!c.id}"/><h2>{!c.Name}</h2></apex:outputlink>
+                            <div class="text-in">
+                                <apex:outputText escape="false" value="{!c.Content__c}"/>
+                                <br>
+                                <div class="authorCrumb">
+                                    Posted by <apex:outputlink value="{!$Page.SiteProfileView}" title="User Profile"><apex:param name="Id" value="{!c.Alias__c}" /><c:lookupAliasById componentValue="{!c.Alias__c}" /></apex:outputlink> on {!MONTH(c.Published_Date__c)}-{!DAY(c.Published_Date__c)}-{!YEAR(c.Published_Date__c)} - <apex:outputlink value="{!$Page.SiteEntryView}"><apex:param name="id" value="{!c.id}"/><c:lookupCommentsByEntryId componentValue="{!c.Id}" /></apex:outputlink>
+                                </div>
+                                <br/><br/>
+                            </div>
+                        </div>
+                        <div class="dottedLine"></div>
+                    </apex:repeat>
+                </div>
+
+                <c:SiteSideBarComponent blogRoll="{!blogRoll}" rss="{!pageBlog.rss_path__c}" recentEntries="{!recentEntries}" monthlyId="{!monthlyId}" sidebar="{!pageBlog.Sidebar__c}"/> 
+
+            </div>
+
+
+        </apex:define>
+
+    </apex:composition>
+
+</apex:pageBlock>
+</apex:page>

@@ -1,0 +1,30 @@
+<apex:page standardController="UserProfile__c" extensions="UserProfileHybridController" sidebar="false">
+
+<apex:pageMessages />
+
+    <apex:form id="theForm">
+    
+        <apex:pageBlock title="Profile Information" mode="detail">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Edit" action="{!edit}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+    
+            <apex:pageBlockSection columns="1" title="Profile Information" >
+                <apex:outputField value="{!p.Name}" />
+                <apex:outputField value="{!p.Title__c}" />
+
+                <apex:pageBlockSectionItem >
+                   	<apex:outputLabel value="Profile Text" for="theTextarea" />
+                	<apex:outputText escape="false" id="theTextarea" value="{!p.Profile_Text__c}" />
+				</apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Owner" for="theOwner"/>
+                    <apex:outputText id="theOwner" value="{!userOwner}"/>
+                </apex:pageBlockSectionItem>
+
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

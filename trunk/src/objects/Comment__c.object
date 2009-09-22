@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A comment associated with an entry.</description>
+    <fields>
+        <fullName>Body__c</fullName>
+        <description>The text body of the comment.</description>
+        <label>Body</label>
+        <length>32000</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Email__c</fullName>
+        <description>The posters email address</description>
+        <label>Email</label>
+        <type>Email</type>
+    </fields>
+    <fields>
+        <fullName>Entry__c</fullName>
+        <description>The entry that this comment is associated with.</description>
+        <label>Entry</label>
+        <referenceTo>Entry__c</referenceTo>
+        <relationshipLabel>Comments</relationshipLabel>
+        <relationshipName>Comments</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sentinel__c</fullName>
+        <description>Used to validate that a person is imputing data.</description>
+        <label>Sentinel</label>
+        <length>4</length>
+        <type>Text</type>
+    </fields>
+    <label>Comment</label>
+    <listViews>
+        <fullName>ALL_Comments</fullName>
+        <columns>NAME</columns>
+        <columns>Body__c</columns>
+        <columns>Email__c</columns>
+        <columns>Entry__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>ALL Comments</label>
+    </listViews>
+    <nameField>
+        <label>Comment Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Comments</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

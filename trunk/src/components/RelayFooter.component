@@ -1,0 +1,21 @@
+<apex:component id="footerComponent">
+
+			</div>
+
+			<div class="pageInfo">
+			    <div class="footerMargins">
+			        <div class="lSide">
+					    <div class="pageElement" style="float: left;">
+							Appiphony's Relay - On-demand Blogging.
+					    </div>
+			        </div>
+			
+			        <div class="rSide">
+			            &copy; {!YEAR(TODAY())}
+			        </div>
+			    </div>
+			</div>
+
+
+        </div>
+</apex:component>

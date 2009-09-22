@@ -1,0 +1,46 @@
+<apex:page standardController="UserProfile__c" extensions="UserProfileHybridController" sidebar="false">
+
+	<apex:pageMessages />
+
+	<script type="text/javascript" src="{!$Resource.jQuery}"/>
+	<script type="text/javascript" src="{!URLFOR($Resource.fckEditor, '/fckeditor/fckeditor.js')}"/>
+    
+    <apex:form id="theForm">
+    
+        <apex:pageBlock title="Profile Information" mode="edit">>
+            <apex:pageBlockButtons >
+                <apex:commandButton value=" Save " action="{!doSave}"/>
+                <apex:commandButton value=" Cancel " action="{!doCancel}"/>
+            </apex:pageBlockButtons>
+    
+            <apex:pageBlockSection columns="1" title="Profile Information" >
+                <apex:inputField value="{!p.Name}" />
+                <apex:inputField value="{!p.Title__c}" />
+
+                <apex:pageBlockSectionItem >
+                   	<apex:outputLabel value="Profile Text" for="theTextarea" />
+                	<apex:inputTextarea id="theTextarea" value="{!p.Profile_Text__c}" styleClass="fckEditTarget"/>
+				</apex:pageBlockSectionItem>
+				<script>
+				window.onload = function() {
+					var editId = $(".fckEditTarget").attr("id");
+					var newEditor = new FCKeditor(editId);
+					newEditor.BasePath = "{!URLFOR($Resource.fckEditor, '/fckeditor/')}";
+					newEditor.Config['CustomConfigurationsPath'] = newEditor.BasePath + 'richtext.config.js';
+					newEditor.ToolbarSet = 'SalesforceBasic';
+					newEditor.Config['ImageBrowserURL'] = '/apex/SiteFileBrowser';
+					newEditor.Config['SkinPath'] = newEditor.BasePath + 'editor/skins/sfdc/';
+					newEditor.Height = '300';
+					newEditor.ReplaceTextarea();
+				}
+				</script>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Owner" for="theOwner"/>
+                    <apex:outputText id="theOwner" value="{!userOwner}"/>
+                </apex:pageBlockSectionItem>
+
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

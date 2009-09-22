@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>User profile for blog</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Profile_Image_Id__c</fullName>
+        <description>Stores a document ID.</description>
+        <label>Profile Image Id</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Profile_Image_Url__c</fullName>
+        <description>Saves the image URL generated on upload</description>
+        <label>Profile Image Url</label>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Profile_Text__c</fullName>
+        <description>Enter a few lines about yourself:</description>
+        <inlineHelpText>Enter a few lines about yourself:</inlineHelpText>
+        <label>Profile Text</label>
+        <length>32000</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <description>Title of position in company.</description>
+        <label>Title</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <label>Profile</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Profile Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Profiles</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

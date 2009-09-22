@@ -1,0 +1,78 @@
+<apex:component controller="SiteSideBarController">
+
+    <apex:attribute name="blogRoll" description="List of links for blogs passed in." type="BlogLink__c[]" />
+    <apex:attribute name="recentEntries" description="List of entries for blogs passed in." type="Entry__c[]" />
+    <apex:attribute name="monthlyId" description="monthIds for archive lists." type="cMonth__c[]" />
+    <apex:attribute name="sidebar" description="The Html of the sidebar." type="String" />
+    <apex:attribute name="rss" description="The URL of the rss feed. Note, you need a blog to properly display this." type="String" />
+
+    <apex:attribute name="render_blogList" description="Display the list of blogs?" type="Boolean" default="true" />
+    <apex:attribute name="render_blogRoll" description="Display the list of links for blog?" type="Boolean" default="true" />
+    <apex:attribute name="render_recentEntries" description="Display the recent Entries?" type="Boolean" default="true" />
+    <apex:attribute name="render_archive" description="Diplay the archive?" type="Boolean"  default="true" />
+    <apex:attribute name="render_search" description="Diplay the archive?" type="Boolean" default="true" />
+    <apex:attribute name="render_rss" description="Diplay the rss?" type="Boolean" default="true" />
+
+	
+    <div class="pageElement" style="width: 214px; padding-left: 5px;">
+        <div class="text-in">
+            <apex:outputPanel rendered="{!render_search}">
+	            <h3>Search</h3>
+	            <form name="searchForm" onSubmit="return processSearch(document.searchForm.searchQuery.value);">
+	                <input type="text" name="searchQuery"/>&nbsp;<input align="top" type="image" src="{!$Resource.searchIcon}" alt="Submit"/>
+	            </form>
+	            <br/>
+	            <hr/>                        
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!render_rss}">
+	            <h3><a href="{!rss}">Subscribe&nbsp;<apex:image url="{!$Resource.rssIcon}"/>&nbsp;</a></h3>
+	            <div class="text-in">
+	                Stay updated on the latest from {!organizationName}
+	            </div>
+	            <br/>
+	            <hr/>                        
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!render_blogList}">
+            <h3>Blogs</h3>
+            <div class="text-in">
+                <apex:repeat value="{!blogList}" var="blogs">
+                    <apex:outputlink value="{!$Page.SiteBlogView}"><apex:param name="id" value="{!blogs.Id}"/><apex:outputText escape="false" value="{!blogs.Name}"/></apex:outputlink><br/><br/>
+                </apex:repeat>
+            </div>
+            <br/>
+            <hr/>                        
+			</apex:outputPanel>
+            <apex:outputPanel rendered="{!render_recentEntries}">
+            <h3>Recent Post</h3>
+            <div class="text-in">
+                <apex:repeat value="{!recentEntries}" var="c">
+                    <apex:outputlink value="{!$Page.SiteEntryView}"><apex:param name="id" value="{!c.id}"/><apex:outputText escape="false" value="{!c.Name}"/></apex:outputlink><br/><br/>                                
+                </apex:repeat>
+            </div>
+            <br/>
+            <hr/>    
+			</apex:outputPanel>
+            <apex:outputPanel rendered="{!render_blogRoll}">
+            <h3>Blog Roll</h3>
+            <div class="text-in">
+                <apex:repeat value="{!blogRoll}" var="c">
+                    <apex:outputlink value="{!c.URL__c}" target="_new"><apex:outputText escape="false" value="{!c.Name}"/></apex:outputlink><br/><br/>                                
+                </apex:repeat>
+            </div>
+            <br/>
+            <hr/>    
+			</apex:outputPanel>
+            <apex:outputPanel rendered="{!render_archive}">
+            <h3>Archives</h3>
+            <div class="text-in">
+                <apex:repeat value="{!monthlyId}" var="mIds2">
+                    <div id="altree{!mIds2.Id}">
+                    </div>
+                </apex:repeat>
+                <apex:outputText escape="false" value="{!sidebar}"/>
+            </div>
+            </apex:outputPanel>
+        </div>
+    </div>
+
+</apex:component>

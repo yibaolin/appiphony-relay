@@ -1,0 +1,80 @@
+<apex:page controller="AppiphonyPageController" title="Appiphony - Custom application development in the cloud" id="AppiphonyHome" showHeader="false" standardStylesheets="false">
+    <apex:composition template="RelayTemplate">     
+
+        <apex:define name="title">Appiphony - About Us</apex:define>
+
+        <apex:define name="additionalHeaders">
+            <script type="text/javascript">
+                function processSearch(query) {
+                    window.location = '/apex/Search?q=' + query;
+                    return false;
+                }
+            </script>
+        </apex:define>
+
+        <apex:define name="body">
+    
+            <div class="rightShadow">
+                <div id="graybar">
+                    <div class="news-in">
+                        About Us
+                    </div>
+                </div>
+            </div>
+            <div class="bottomShade" style="margin-bottom: 10px; margin-left: 0px;"><br></div>
+
+            <div class="pageElement" style="width: 898px; background-image: url({!$Resource.backer});">
+                
+                <div class="pageElement" style="width: 650px; padding-right: 10px;">
+                    <div class="text-in">
+                    <h2>Who We Are</h2>
+                     Appiphony is a boutique consulting firm based in Chicago, Illinois with a singular focus on developing applications on the Force.com platform. In May 2006 their management team developed MyLoanBiz for Salesforce.com (<a href="http://www.salesforce.com/platform/innovators/myloanbiz.jsp" target="_blank">http://www.salesforce.com/platform/innovators/myloanbiz.jsp</a>) a mortgage specific CRM solution that was one of the first offerings through Salesforce.com's ISV partner program and one of the initial listings on the Appexchange.  This experience highlighted the significant benefits of developing on a cloud computing platform versus traditional on-premise technology and led to the formation of Appiphony so that this expertise could be provided to others.
+                    <br>
+                    <br>
+                    Appiphony practices an agile approach to application development called SCRUM. This methodology emphasizes delivering tangible business results in short iterative time frames called sprints. A sprint typically lasts 30 days or less and results in actual production ready functionality. Each sprint builds off the last with the goal of moving closer to a completed business solution. Appiphony has found that constant collaboration with clients during the development process is the key to making each sprint a success.
+                    <br>
+                    <br>
+                    By leveraging cloud computing and SCRUM; Appiphony is able to deliver customized solutions to our customers at a level of speed, innovation, and cost that until now has not been possible. Appiphony's goal is always to deliver the right expertise to solve our client problems and do so with the highest quality of work.
+                    <br>
+         
+                    <br>
+         			 <br>
+                    <br>
+                    <br>
+               
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    </div>
+                </div>
+
+                <div class="pageElement" style="width: 214px; padding-left: 5px;">
+                    <div class="text-in">
+                        <form name="searchForm" onSubmit="return processSearch(document.searchForm.searchQuery.value);">
+                            <input type="text" name="searchQuery"/>&nbsp;<input align="top" type="image" src="{!$Resource.searchIcon}" alt="Submit"/>
+                        </form>
+                        <br/>
+						<h3><a href="/services/xml/Appiphony">Subscribe&nbsp;<apex:image url="{!$Resource.rssIcon}"/>&nbsp;</a></h3>
+                        <div class="text-in">
+                            Stay updated on the latest from Appiphony.
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </apex:define>
+
+    </apex:composition>
+
+</apex:page>

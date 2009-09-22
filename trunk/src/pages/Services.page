@@ -1,0 +1,69 @@
+<apex:page controller="AppiphonyPageController" title="Appiphony - Custom application development in the cloud" id="AppiphonyHome" showHeader="false" standardStylesheets="false">
+    <apex:composition template="RelayTemplate">     
+
+        <apex:define name="title">Appiphony - Services</apex:define>
+
+        <apex:define name="additionalHeaders">
+            <script type="text/javascript">
+                function processSearch(query) {
+                    window.location = '/apex/Search?q=' + query;
+                    return false;
+                }
+            </script>
+        </apex:define>
+
+        <apex:define name="body">
+    
+            <div class="rightShadow">
+                <div id="graybar">
+                    <div class="news-in">
+                        Services
+                    </div>
+                </div>
+            </div>
+            <div class="bottomShade" style="margin-bottom: 10px; margin-left: 0px;"><br></div>
+
+            <div class="pageElement" style="width: 898px; background-image: url({!$Resource.backer});">
+                
+                <div class="pageElement" style="width: 650px; padding-right: 10px;">
+                    <div class="text-in">
+                        <h2>Custom Application Development</h2>
+                        Appiphony has worked with corporations of all sizes to develop custom applications to meet their unique business requirements. Our agile approach to development and use of the Force.com platforms allows us to deliver functional applications to our clients in weeks rather than months. An Appiphony project starts with our team documenting key business use cases and designing the application's data model in collaboration with the client. Next, Appiphony develops screen mock-ups for application functionality that falls outside standard Force.com page layout standards. Once the design and mock-ups are approved by the client; the Appiphony team quickly develops the application on the Force.com platform through standard configuration techniques and by leveraging Apex and Visualforce where appropriate. The application is then tested and presented back to the client for final review.
+                        <br>
+                        <br>
+                        During various points in the development process, Appiphony will work hand-in-hand with the client to refine application specifications and illicit feedback on completed work. Once a sprint is completed and we have sign-off from the client, Appiphony will work in conjunction with the client to plan training and implementation. A program designed to accomplish full user adoption is then detailed and deployed. Finally, a sprint review meeting is held to discuss what could be improved upon and then the next sprint is defined.
+                        <br>
+                        <br>
+                        <h2>Custom Product Development</h2>
+                          The management team at Appiphony has the distinct advantage of having been one of the first to launch a product on the Force.com platform (www.myloanbiz.com). This experience has taught us that product development has a series of unique requirements that adds additional layers of complexity to the development process. Appiphony has the expertise to guide a company through product design, development, and launch. Having worked with numerous Force.com ISV partners, we understand the challenges that they face and as a result can help greatly reduce both development time and expense.
+                          <br>
+                          <br>                    
+                           <h2>ISV On Boarding</h2>
+                           Appiphony has the expertise to guide prospective ISVs through the myriad of decisions they need to make when launching a product on the Force.com platform. Our services range from admin and developer training, product architecture design, application packaging, product deployment via Trialforce, and implementation of Salesforce.com's License Management Application. In addition, Appiphony has developed a standardized Salesforce template specifically for use with an ISV's internal Salesforce CRM account. This set of configurations and email templates tailors Salesforce to the specific business needs of an ISV. Appiphony understands the hurdles and complexities involved with launching an ISV business and our experience can help an organization greatly reduce the time and cost that it takes to bring a product to market.
+                           <br>
+                           <br>
+                           <h2>Remote Administration</h2>
+                           It may not always make sense to have an internal resource designated to be your Salesforce Administrator. Appiphony can serve this role for your company remotely. Our experienced administrators can assist in adding new users, developing reports and dashboards, implementing workflows or approval processes, and assist with Visualforce and Apex development. We are always just a phone call away.
+                          <br>
+                    </div>
+                </div>
+
+                <div class="pageElement" style="width: 214px; padding-left: 5px;">
+                    <div class="text-in">
+                        <form name="searchForm" onSubmit="return processSearch(document.searchForm.searchQuery.value);">
+                            <input type="text" name="searchQuery"/>&nbsp;<input  align="top" type="image" src="{!$Resource.searchIcon}" alt="Submit"/>
+                        </form>
+                        <br/>
+						<h3><a href="/services/xml/Appiphony">Subscribe&nbsp;<apex:image url="{!$Resource.rssIcon}"/>&nbsp;</a></h3>
+                        <div class="text-in">
+                            Stay updated on the latest from Appiphony.
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </apex:define>
+
+    </apex:composition>
+
+</apex:page>

@@ -1,0 +1,70 @@
+<apex:page title="Whatever" controller="SearchController" showHeader="false" standardStylesheets="false">
+
+    <apex:composition template="RelayTemplate">    
+
+        <apex:define name="title">Search Page</apex:define>
+
+        <apex:define name="additionalHeaders">
+
+            <link rel="stylesheet" href="{!$Resource.thickboxCSS}" type="text/css"  media="screen" />
+            <style>
+                .TB_overlayMacFFBGHack {background: url({!$Resource.macFFBgHack}) repeat;}
+            </style>
+            
+            <script type="text/javascript" src="{!$Resource.jQuery}"></script>
+            <script> var tb_pathToImage = "{!$Resource.thickboxLoader}"; </script>
+            <script type="text/javascript" src="{!$Resource.thickboxJSNC}">
+            
+            </script>   
+            <script>
+                 jQuery.noConflict();
+            </script>       
+
+        </apex:define>
+        
+        <apex:define name="body">
+                <div id="graybar">
+                    <div class="news-in">
+                        Search Results
+                    </div>
+                </div>
+
+            <div class="pageElement" style="width: 898px;">
+                
+                <div class="pageElement" style="width: 650px; padding-right: 10px;">
+
+                    <div class="text-in" style="color: #006699; font-weight: bold;">
+                        Search found {!Count} results.&nbsp;{!errorMessage}
+                        <br/>
+                    </div>                  
+
+                    <apex:repeat value="{!entryList}" var="c">
+                        <div class="text-in">
+                            <apex:outputlink value="{!$Page.SiteEntryView}"><apex:param name="id" value="{!c.id}"/><h2>{!c.Name}</h2><br></apex:outputlink>
+                            <div class="text-in">
+                                <apex:outputText escape="false" value="{!c.Content__c}"/>
+                                <br>
+                                <div class="authorCrumb">
+                                    Posted by <apex:outputlink value="{!$Page.SiteProfileView}" styleClass="thickbox" title="User Profile"><apex:param name="id" value="{!c.Alias__c}&KeepThis=true&TB_iframe=true&height=400&width=600" /> <c:lookupAliasById componentValue="{!c.Alias__c}" /> </apex:outputlink> on {!MONTH(c.Published_Date__c)}-{!DAY(c.Published_Date__c)}-{!YEAR(c.Published_Date__c)}
+                                </div>
+                                <br/><br/>
+                            </div>
+                        </div>
+                    </apex:repeat>
+                </div>
+
+                <div class="pageElement" style="width: 214px; padding-left: 5px;">
+                    <div class="text-in">
+                        <h3>Search</h3>
+                        <form name="searchForm" onSubmit="return processSearch(document.searchForm.searchQuery.value);">
+                            <input type="text" name="searchQuery"/>&nbsp;<input align="top" type="image" src="{!$Resource.searchIcon}" alt="Submit"/>
+                        </form>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </apex:define>
+
+    </apex:composition>
+
+</apex:page>

@@ -1,0 +1,120 @@
+<apex:page controller="AppiphonyPageController" title="Appiphony - Custom application development in the cloud" id="AppiphonyHome" showHeader="false" standardStylesheets="false">
+    <apex:composition template="RelayTemplate">
+
+        <apex:define name="title">Appiphony - Custom Application Development in The Cloud</apex:define>
+
+        <apex:define name="additionalHeaders">
+            <script type="text/javascript">          
+                function swapNews() {
+                    var delay = 4000; // MS, or 4 secs.
+                    var timerID = setTimeout("swapNews()", delay);
+                    if (document.getElementById("news1").style.display == "inline") {
+                        document.getElementById("news1").style.display = "none";
+                        document.getElementById("news2").style.display = "inline";
+                        document.getElementById("news3").style.display = "none";
+    
+                    } else if (document.getElementById("news2").style.display == "inline") {
+                        document.getElementById("news1").style.display = "none";
+                        document.getElementById("news2").style.display = "none";
+                        document.getElementById("news3").style.display = "inline";
+    
+                    } else if (document.getElementById("news3").style.display == "inline") {
+                        document.getElementById("news1").style.display = "inline";
+                        document.getElementById("news2").style.display = "none";
+                        document.getElementById("news3").style.display = "none";
+                    }
+                }
+            </script>
+
+            <script type="text/javascript">
+                window.addEvent('domready', swapNews());
+            </script>
+            
+            <script type="text/javascript" src="{!$Resource.mootoolscore}"/>
+            <script type="text/javascript" src="{!$Resource.mootools}"/>
+            <script type="text/javascript">
+                window.addEvent('domready', 
+                    function() {
+                        var myAccordion = new Accordion($('accordion'), 'h2.toggle', 'div.appElement', 
+                        {
+                            opacity: true,
+                            onActive: function(toggler, element) {
+                                toggler.setStyle('background-image','url("{!$Resource.arrowDown}")');
+                            },
+                            onBackground: function(toggler, element) {
+                                toggler.setStyle('background-image','url("{!$Resource.arrow}")');
+                            }
+                        }); 
+                    }
+                );
+
+                window.addEvent('domready', 
+                    function() {
+                        $('accordion').setStyle('visibility', 'visible');
+                    }
+                );
+            </script>
+        </apex:define>
+
+        <apex:define name="body">  
+        
+                <div class="rightShadow">
+                <div class="pageElement" style="border: 1px solid #CCCCCC; width: 898px;">
+                    <apex:image url="{!$Resource.appiphonyBanner}" alt="Custom Application Development in the Cloud"/>
+                </div>
+                <div class="pageElement" style="padding-top: 5px; width: 898px; height: 20px; background-color: #F3F3EC; border-left: 1px solid #CCCCCC; border-right: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC;">
+                    <div style="float: left; display: inline; margin-top: 0px; padding-left: 10px;">
+                        <a href="/services/xml/Appiphony"><apex:image url="{!$Resource.rssIcon}"/>&nbsp;</a>
+                    </div>
+                    <div class="news-in">
+                        <a href="/SiteBlogView?id=a0b80000000dI6BAAU">Latest Blog Posts</a><span class="unbold">&nbsp;|&nbsp;</span>
+                        <div id="news1" style="display: inline;">
+                            <span class="unbold"><apex:outputlink value="{!$Page.SiteEntryView}"><apex:param name="id" value="{!post0.id}"/>{!post0.Name}</apex:outputlink></span>
+                        </div>
+                        <div id="news2" style="display: none;">
+                            <span class="unbold"><apex:outputlink value="{!$Page.SiteEntryView}"><apex:param name="id" value="{!post1.id}"/>{!post1.Name}</apex:outputlink></span>
+                        </div>
+                        <div id="news3" style="display: none;">
+                            <span class="unbold"><apex:outputlink value="{!$Page.SiteEntryView}"><apex:param name="id" value="{!post2.id}"/>{!post2.Name}</apex:outputlink></span>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+                <div class="bottomShade" style="margin-bottom: 10px; margin-left: 0px;"/><br></div>
+                
+                <div class="pageElement" style="width: 304px; padding-right: 15px;">
+                    <div class="text-in">
+                        <h2>Force.com Custom Development</h2>
+                        Appiphony builds custom applications and products on the Force.com platform. Our customers include small businesses, Fortune 500 companies, and Salesforce.com ISV partners. Constant collaboration with our clients throughout the development process is the key to our success and why we consistently deliver projects on schedule and within budget.
+                        <br/>
+                        <h2>Scrum Methodology</h2>
+                     Appiphony utilizes an iterative approach to software development called Scrum. This methodology best compliments the agile nature of the Force.com platform and allows us to quickly develop high quality applications in short time frames. Scrum is designed to ensure that the highest business value features are delivered first and get in the hands of the end-user as quickly as possible.
+                        <br/>
+                        <h2>ISV On-Boarding</h2>
+                     Appiphony's founders launched one of the original Force.com ISV partners (MyLoanBiz) and as a result we are uniquely qualified to assist new Force.com ISV Partners in developing and bringing to market a product based on the Force.com platform. Our services range from admin and developer training, product architectural design, product packaging and deployment via Trailforce, and implementation of license management.
+                    </div>
+                </div>
+
+                <div class="pageElement" style="width: 344px;">
+                    <div class="text-in">
+                        <div id="accordion" style="width: 342px">
+                            <apex:repeat value="{!cases}" var="c">
+                                <h2 class="toggle"><div style="padding-left: 30px; padding-top: 10px;"><apex:outputText escape="false" value="{!c.Name}"/> - Case Study</div></h2>
+                                <div class="appElement"><div class="text-in"><apex:outputText escape="false" value="{!c.Abstract__c}"/><apex:outputlink value="{!$Page.SiteEntryView}"><apex:param name="id" value="{!c.id}"/>Learn More...<br><br></apex:outputlink></div></div>
+                            </apex:repeat>
+                        </div>
+                    </div>
+                </div>
+
+          <c:RightSide />
+                
+                <div class="pageElement" style="width: 898px;">
+                    <br/><br/>
+                    
+                    
+                </div>
+
+        </apex:define>
+    </apex:composition>
+</apex:page>
