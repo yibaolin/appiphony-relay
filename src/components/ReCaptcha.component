@@ -1,0 +1,16 @@
+<apex:component controller="captchaController">
+	<script type="text/javascript" src="http://api.recaptcha.net/js/recaptcha_ajax.js"></script>
+ 	<script>
+		 function makeCaptcha() {
+ 			Recaptcha.create("{!apiPublicKey}",
+			"recaptcha_div", {
+   				theme: "{!skin}",
+   				callback: Recaptcha.focus_response_field
+   			});
+		}
+	</script>
+	<div id="recaptcha_div"></div>
+	<script>
+		makeCaptcha();
+	</script>
+</apex:component>

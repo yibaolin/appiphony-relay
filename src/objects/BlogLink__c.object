@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Website links that are displayed on the sidebar.</description>
+    <fields>
+        <fullName>Blog__c</fullName>
+        <description>The blog to which this link is associated.</description>
+        <inlineHelpText>The blog to which this link is associated.</inlineHelpText>
+        <label>Blog</label>
+        <referenceTo>Blog__c</referenceTo>
+        <relationshipLabel>BlogLinks</relationshipLabel>
+        <relationshipName>BlogLinks</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Number__c</fullName>
+        <label>Display Order</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>URL__c</fullName>
+        <description>The URL to which this weblink points.</description>
+        <inlineHelpText>The URL to which this weblink points.</inlineHelpText>
+        <label>URL</label>
+        <type>Url</type>
+    </fields>
+    <label>BlogLink</label>
+    <nameField>
+        <label>Weblink Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>BlogLinks</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

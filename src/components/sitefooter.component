@@ -1,0 +1,32 @@
+<apex:component id="footerComponent">
+
+            </div>
+
+<div class="pageInfo">
+    <div class="footerMargins">
+        <div class="lSide">
+            &nbsp;
+        </div>
+        <div class="rSide">
+            <!--TODO Input the year & Company Name -->
+            &copy; 2008 {!$Organization.Name}
+        </div>
+    </div>
+</div>
+      
+      
+        </div>
+
+        <script src="https://ssl.google-analytics.com/urchin.js" type="text/javascript">
+        </script>
+        <script type="text/javascript">
+        _uacct = "UA-452496-1";
+        urchinTracker();
+        </script>
+
+    </body>
+</html>
+
+
+
+</apex:component>

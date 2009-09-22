@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A Blog holds a number of Entry objects. In addition, a Blog also contains a Name and some administrative information regarding its usage - such as the number of entries to display and a checkbox that determines if a Blog is the default blog.</description>
+    <fields>
+        <fullName>Allow_Comments__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>If checked, the blog will support Relay&apos;s internal comment system. This is enabled by default.</description>
+        <inlineHelpText>If checked, the blog will support Relay&apos;s internal comment system. This is enabled by default.</inlineHelpText>
+        <label>Allow Comments</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Default__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is this the default blog associated with your site?</description>
+        <inlineHelpText>Is this the default blog associated with your site?</inlineHelpText>
+        <label>Default</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Entries_to_Display__c</fullName>
+        <description>The number of entries displayed by default.</description>
+        <inlineHelpText>The number of entries displayed by default.</inlineHelpText>
+        <label>Entries Displayed</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Sidebar__c</fullName>
+        <description>The HTML for the sidebar. (This should remain hidden. A Trigger on Entry save updates this.)</description>
+        <label>Sidebar</label>
+        <length>32000</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sort_Id__c</fullName>
+        <label>Sort Id</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>rss_path__c</fullName>
+        <description>The url to the RSS feed (if it has been setup.)</description>
+        <label>RSS Path</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <label>Blog</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Default__c</columns>
+        <columns>Entries_to_Display__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Blog Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Blogs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

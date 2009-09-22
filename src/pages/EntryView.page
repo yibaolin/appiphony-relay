@@ -1,0 +1,56 @@
+<apex:page standardcontroller="Entry__c" Extensions="EntryACLController"> 
+	<apex:sectionHeader title="View Entry" subtitle="{!Entry__c.Name}"/>
+
+	<apex:form >
+
+	<apex:pageMessages />
+
+	<apex:pageBlock title="View Entry" id="editBlock" mode="detail">
+
+		<apex:pageBlockButtons >
+			<apex:commandButton value="Edit" action="{!edit}"/>
+			<apex:commandButton value="Cancel" action="{!cancel}"/>
+        </apex:pageBlockButtons>
+
+        <apex:pageBlockSection title="Entry Information"  columns="1">
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel for="name" value="Title:"/>
+				<apex:outputField id="name" value="{!Entry__c.Name}"/>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel for="status" value="Published Status:"/>
+				<apex:outputField id="status" value="{!Entry__c.Published__c}"/>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel for="month" value="Published Month:"/>
+				<apex:outputField id="month" value="{!Entry__c.cMonth__c}"/>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel for="blog" value="Blog:"/>
+				<apex:outputField id="blog" value="{!Entry__c.Blog__c}"/>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel for="comment" value="Close Comments?"/>
+				<apex:outputField id="comment" value="{!Entry__c.Close_Comment__c}"/>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel for="theTextarea" value="Contents:"/>
+				<apex:outputText id="theTextarea" escape="false" value="{!Entry__c.Content__c}"/>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel for="abs" value="Summary/Abstract:"/>
+				<apex:outputText id="abs" escape="false" value="{!Entry__c.Abstract__c}" />
+			</apex:pageBlockSectionItem>
+			
+			
+			           
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+
+    </apex:form>
+
+</apex:page>

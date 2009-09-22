@@ -1,0 +1,37 @@
+<apex:page showHeader="false" id="SiteTemplate" standardStylesheets="false">
+
+<head>
+    <style type="text/css">
+        @import "{!$Resource.basicStyle}";
+    </style>
+
+    <title><apex:insert name="title"/></title>
+    <apex:insert name="additionalHeaders"/>
+    <script type="text/javascript">
+        function processSearch(query) {
+            window.location = '/apex/SiteSearch?q=' + query;
+            return false;
+        }
+    </script>   
+</head>
+
+<body>
+
+<body>
+
+  <apex:insert name="header">
+    <c:RelayHeader />
+  </apex:insert>
+
+  <apex:insert name="body"/>
+
+  <apex:insert name="footer">
+    <c:RelayFooter />
+  </apex:insert>
+
+</body>  
+
+
+</body>  
+
+</apex:page>

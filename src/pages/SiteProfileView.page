@@ -1,0 +1,31 @@
+<apex:page controller="UserProfileViewController" showHeader="false" standardStylesheets="false">
+    
+    <apex:composition template="RelayTemplate">     
+
+		<apex:define name="title">User Profile - {!u.Name}</apex:define>   
+   
+		<apex:define name="body">
+		     <div class="rightShadow">
+			     <div id="graybar">
+			         <div class="news-in">
+			             Profile Information For: {!u.Name}
+			         </div>
+			     </div>
+			</div>
+
+            <div class="pageElement" style="width: 898px; ">
+                <div class="pageElement" style="width: 664px;">
+                    <div class="text-in">
+						<b>{!u.Name}</b><br />
+						{!profileTitle}<br />
+						<apex:outputText escape="false" value="{!profileText}"/><br/>
+						{!$Organization.Name}<br />
+					</div>
+				</div>
+
+	            <c:SiteSideBarComponent render_blogRoll="false" render_recentEntries="false" render_archive="false" render_rss="false" /> 
+			</div>
+
+        </apex:define>
+    </apex:composition>
+</apex:page>

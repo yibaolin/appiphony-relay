@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>cMonths are objects that associate entries with dates without having to do lookups on the created/posted dates.</description>
+    <fields>
+        <fullName>Blog__c</fullName>
+        <description>The blog that this cMonth is associated with. You may have multiple cMonth objects all named the same - this is normal as each blog may have the same month/year combos if they&apos;re published regularly.</description>
+        <label>Blog</label>
+        <referenceTo>Blog__c</referenceTo>
+        <relationshipLabel>cMonth__c</relationshipLabel>
+        <relationshipName>cMonths</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Display_Name__c</fullName>
+        <description>The name of the month.</description>
+        <label>Display Name</label>
+        <length>20</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Published_Date__c</fullName>
+        <description>The date that this month item was created, we use it to order data. Sometimes we&apos;ll change these to move around display orders...</description>
+        <label>Published Date</label>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Year_Name__c</fullName>
+        <description>The year name that this cMonth is associated with.</description>
+        <label>Year Name</label>
+        <length>4</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>cYear__c</fullName>
+        <description>The cYear that this cMonth is related to.</description>
+        <label>cYear</label>
+        <referenceTo>cYear__c</referenceTo>
+        <relationshipLabel>cMonths</relationshipLabel>
+        <relationshipName>cMonths</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <label>cMonth</label>
+    <nameField>
+        <label>cMonth Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>cMonths</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
